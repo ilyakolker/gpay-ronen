@@ -219,6 +219,33 @@
       padding:9px 12px;border-radius:999px;color:var(--brand-dark)
     }
     .tiny{font-size:12px;color:var(--muted);text-align:center;margin-top:8px}
+    /* comparison screen */
+    .compare-head{text-align:center;padding:6px 0 14px}
+    .compare-head h2{margin:0 0 4px;font-size:22px}
+    .compare-head h2 .g{color:var(--brand-dark)}
+    .compare-head p{margin:0;color:var(--muted);font-size:13px}
+    .cmp-table{width:100%;table-layout:fixed;border-collapse:collapse;
+      border:1px solid var(--line);font-size:13px}
+    .cmp-table col.brand{width:62px}
+    .cmp-table th,.cmp-table td{padding:10px 6px;border-bottom:1px solid var(--line);vertical-align:middle}
+    .cmp-table tbody tr:last-child td{border-bottom:0}
+    .cmp-table thead th{background:#f7fafb;text-align:center;height:52px}
+    .cmp-table thead th.cat-h{text-align:right;font-size:13px}
+    .cmp-table thead th.g{background:#e9fbf1;color:var(--brand-dark);font-size:15px}
+    .cmp-table thead th.p{background:#eef4ff;color:#2b5bbd;font-size:13px;line-height:1.15}
+    .cmp-table thead th.p small{display:block;font-weight:400;color:var(--muted);font-size:10px}
+    .cmp-table td.cat{text-align:right;font-weight:700;font-size:12.5px}
+    .cmp-table td.cat i{font-style:normal;margin-left:5px}
+    .cmp-table td.mark{text-align:center}
+    .cmp-table .yes{color:var(--success);font-size:18px;font-weight:900}
+    .cmp-table .no{color:var(--danger);font-size:18px;font-weight:900}
+    .cmp-table tbody tr:nth-child(even) td{background:#fafcfd}
+    .why-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:6px}
+    .why-item{background:#f2fbf6;border:1px solid #d9f2e5;border-radius:14px;padding:12px;text-align:center}
+    .why-item .bubble{width:40px;height:40px;border-radius:50%;margin:0 auto 8px;
+      display:grid;place-items:center;background:#dff5e9;color:var(--success);font-size:20px}
+    .why-item b{display:block;font-size:13px;margin-bottom:3px}
+    .why-item span{font-size:11px;color:var(--muted);line-height:1.4}
     @media(max-width:850px){
       .app{grid-template-columns:1fr;padding:16px}
       .side{order:2;max-width:390px;justify-self:center}
@@ -248,6 +275,7 @@
         <button onclick="go('cart')">מסלול מארגן</button>
         <button onclick="go('incoming')">מסלול משתתף</button>
         <button onclick="go('problem')">הבעיה והיתרונות</button>
+        <button onclick="go('compare')">Gpay מול PayPal</button>
       </div>
     </section>
 
@@ -407,6 +435,53 @@
             <div class="problem-item" style="border-color:#d9f6e6"><i>🔒</i><div><b>רכישה רק כשהסכום מוכן</b><span>אין צורך לממן אחרים או לרדוף אחרי החזר כספי.</span></div></div>
           </div>
           <button class="primary" onclick="go('cart')">התחל את ההדגמה</button>
+        </div>
+      </div>
+
+      <div class="screen" id="compare">
+        <div class="topbar"><button class="icon-btn" onclick="go('cart')">›</button><span class="logo">Gpay מול PayPal</span><button class="icon-btn" onclick="go('cart')">×</button></div>
+        <div class="content">
+          <div class="compare-head">
+            <h2><span class="g">Gpay</span> לעומת PayPal Split Bill</h2>
+            <p>פתרון התשלום הקבוצתי המתקדם ביותר</p>
+          </div>
+          <table class="cmp-table">
+            <colgroup>
+              <col />
+              <col class="brand" />
+              <col class="brand" />
+            </colgroup>
+            <thead>
+              <tr>
+                <th class="cat-h">קטגוריה</th>
+                <th class="g">Gpay</th>
+                <th class="p">PayPal<small>Split Bill</small></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td class="cat"><i>🌐</i>תאימות לכל אתר</td><td class="mark"><span class="yes">✓</span></td><td class="mark"><span class="no">✗</span></td></tr>
+              <tr><td class="cat"><i>👤</i>ללא הרשמה או חשבון</td><td class="mark"><span class="yes">✓</span></td><td class="mark"><span class="no">✗</span></td></tr>
+              <tr><td class="cat"><i>⚡</i>קבלת כסף מיידית</td><td class="mark"><span class="yes">✓</span></td><td class="mark"><span class="no">✗</span></td></tr>
+              <tr><td class="cat"><i>🎚️</i>חלוקה גמישה</td><td class="mark"><span class="yes">✓</span></td><td class="mark"><span class="no">✗</span></td></tr>
+              <tr><td class="cat"><i>👥</i>משתתפים ללא הגבלה</td><td class="mark"><span class="yes">✓</span></td><td class="mark"><span class="no">✗</span></td></tr>
+              <tr><td class="cat"><i>🔔</i>תזכורות אוטומטיות</td><td class="mark"><span class="yes">✓</span></td><td class="mark"><span class="no">✗</span></td></tr>
+              <tr><td class="cat"><i>🛡️</i>פרטיות מלאה</td><td class="mark"><span class="yes">✓</span></td><td class="mark"><span class="no">✗</span></td></tr>
+              <tr><td class="cat"><i>⭐</i>מוצר ייעודי לקבוצות</td><td class="mark"><span class="yes">✓</span></td><td class="mark"><span class="no">✗</span></td></tr>
+              <tr><td class="cat"><i>🏷️</i>ללא עמלות נוספות</td><td class="mark"><span class="yes">✓</span></td><td class="mark"><span class="no">✗</span></td></tr>
+              <tr><td class="cat"><i>🛒</i>רכישה אוטומטית מקצה לקצה</td><td class="mark"><span class="yes">✓</span></td><td class="mark"><span class="no">✗</span></td></tr>
+            </tbody>
+          </table>
+
+          <h2 style="text-align:center;margin:22px 0 12px">למה <span style="color:var(--brand-dark)">Gpay</span> עדיף?</h2>
+          <div class="why-grid">
+            <div class="why-item"><div class="bubble">🚀</div><b>עובד בכל מקום</b><span>כל אתר, כל חנות, כל שירות אונליין</span></div>
+            <div class="why-item"><div class="bubble">⚡</div><b>מהיר ויעיל</b><span>הכסף עובר מיד והרכישה מתבצעת בלחיצה אחת</span></div>
+            <div class="why-item"><div class="bubble">👥</div><b>גמיש וחכם</b><span>חלוקה אישית לכל אחד, ללא מגבלות</span></div>
+            <div class="why-item"><div class="bubble">🛡️</div><b>בטוח ופרטי</b><span>הגנה מלאה על המידע שלך ושל חבריך</span></div>
+            <div class="why-item"><div class="bubble">🔔</div><b>ניהול קל</b><span>מעקב, תזכורות והתראות חכמות</span></div>
+            <div class="why-item"><div class="bubble">⭐</div><b>נבנה בשבילך</b><span>מוצר ייעודי לתשלומים קבוצתיים – חוויה אחרת</span></div>
+          </div>
+          <button class="primary" onclick="go('cart')" style="margin-top:16px">התחל את ההדגמה</button>
         </div>
       </div>
 
